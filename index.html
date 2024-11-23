@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web here</title>
+</head>
+<style>
+    body{
+        h1{
+            font-family: Arial, sans-serif; /* Set font to Arial */
+            font-size: 150px; /* Set font size to 16 pixels */
+            color: #030110;
+        }
+        background-color:rgb(172, 101, 16);
+        h2{
+            font-size: 50px;
+        }
+        }
+       
+</style>
+<b>
+    <h1>welcome to the portfolio tracker page</h1>
+    <div class="content">
+    
+        <div>
+            <label for="assetSelect">Select Asset:</label> 
+            <select id="assetSelect">
+                <option value="">Choose an asset</option>
+
+                <option value="GORGE">Gorge</option>
+                <option value="ANJELICA">Anjelica</option>
+                <option value="ANNA">Anna</option>
+                <option value="TINA">Tina</option>
+            </select>
+            <button id="addAssetBtn">Add to Portfolio</button>
+        </div>
+       
+
+
+        <h2>Your Portfolio</h2>
+        <ul id="portfolioList">
+            
+        </ul>
+    </div>
+    <script>
+        document.getElementById('addAssetBtn').addEventListener('click', function() {
+            const select = document.getElementById('assetSelect');
+            const selectedAsset = select.value;
+
+            if (selectedAsset) {
+        
+                const listItem = document.createElement('li');
+                listItem.textContent = `${selectedAsset} - Price: $${(Math.random() * (100 - 10) + 10).toFixed(9)}`;
+                
+                document.getElementById('portfolioList').appendChild(listItem);
+
+                
+                select.value = "";
+            } else {
+                alert(" Select an asset");
+            }
+        });
+    </script>
+
+</body>
+</html>
+
